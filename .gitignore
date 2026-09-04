@@ -1,0 +1,43 @@
+# Generated artifacts
+artifacts/
+outputs/
+reports/
+checkpoints/
+wandb/
+policy_records/
+
+# Model and dataset files
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+*.bin
+*.onnx
+*.npy
+*.npz
+*.h5
+*.hdf5
+*.mp4
+*.mov
+*.avi
+
+# Python and native build products
+.venv/
+venv/
+__pycache__/
+*.py[cod]
+*.so
+*.o
+*.a
+build/
+dist/
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Third-party checkouts and local configuration
+third_party/
+.env
+.DS_Store
+.idea/
+.vscode/

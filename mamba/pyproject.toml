@@ -1,0 +1,53 @@
+[project]
+name = "mamba_ssm"
+description = "Mamba state-space model"
+readme = "README.md"
+authors = [
+    { name = "Tri Dao", email = "tri@tridao.me" },
+    { name = "Albert Gu", email = "agu@cs.cmu.edu" }
+]
+requires-python = ">= 3.9"
+dynamic = ["version"]
+license = { file = "LICENSE" }  # Include a LICENSE file in your repo
+keywords = ["cuda", "pytorch", "state-space model"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: Unix"
+]
+dependencies = [
+    "torch",
+    "tilelang==0.1.8",
+    "apache-tvm-ffi<=0.1.9",
+    "quack-kernels>=0.3.4",
+    "triton>=3.5.0",
+    "ninja",
+    "einops",
+    "transformers",
+    "packaging",
+    "setuptools>=61.0.0",
+]
+[project.urls]
+Repository = "https://github.com/state-spaces/mamba"
+
+[project.optional-dependencies]
+causal-conv1d = [
+    "causal-conv1d>=1.2.0"
+]
+dev = [
+    "pytest"
+]
+
+
+[build-system]
+# torch is intentionally excluded: pip's build isolation would install
+# torch-cpu from PyPI, ignoring the user's CUDA-enabled torch.
+# Users building from source should install torch first, then:
+#   pip install mamba-ssm --no-build-isolation
+requires = [
+    "setuptools>=61.0.0",
+    "wheel",
+    "packaging",
+    "ninja",
+]
+build-backend = "setuptools.build_meta"
