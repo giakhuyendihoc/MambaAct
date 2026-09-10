@@ -78,15 +78,35 @@ All models use the same Context Compressor. Size is the action-expert core.
 
 ## SmolVLA Transfer
 
-All measurements use the same H100 setup, horizon 10, and ten denoising steps.
-These E2E values exclude simulator rendering, networking, and environment
-stepping.
+The baseline is the released `lerobot/smolvla_libero` checkpoint at revision
+`31d453f7edd78c839a8bbc39744a292686daf0de`, evaluated without further training.
+SmolVLA-MambaAct starts from `lerobot/smolvla_base` and matches the release's
+documented budget and recipe: 25,000 steps, batch 32, and training seed 1000.
+Both evaluations use 50 trials/task, seed 7, four suites (2,000 trials),
+two cameras, horizon 50, execute 10 actions before replanning, and ten denoising
+steps. Simulator images are 360x360 and resized with padding to 512x512.
 
-| Model | Spatial | Object | Goal | L-10 | Avg. | Prefix (ms) | Denoise (ms) | E2E/query (ms) | Action expert (M) |
+| Model | Spatial | Object | Goal | L-10 | Avg. | Prefix (ms) | Denoise (ms) | Model-core query (ms) | Expert core (M) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| SmolVLA baseline | 74.0 | 94.4 | 86.6 | 55.6 | 77.7 | 25.44 | 162.02 | 187.47 | 98.25 |
-| SmolVLA-Mamba | 87.4 | 92.6 | 81.8 | 75.2 | 84.3 | 31.00 | 59.53 | 90.59 | 64.31 |
+| Released SmolVLA 25k | 76.6 | 93.0 | 85.4 | 70.2 | 81.30 | 25.53 | 163.15 | 188.69 | 98.25 |
+| SmolVLA-MambaAct 25k | 82.6 | 92.4 | 87.0 | 77.8 | 84.95 | 30.69 | 59.89 | 90.61 | 64.31 |
 
-The SmolVLA baseline is the matched reimplementation used by the transfer
-ablation and differs from the published SmolVLA reference row discussed in
-the paper's cross-method comparison.
+Success totals are 1,626/2,000 and 1,699/2,000: +3.65 percentage points overall
+and +7.6 points on LIBERO-10. Model-core query latency decreases by 52.0%.
+Expert core counts the native `lm_expert` (98,245,840 parameters) or the four
+Mamba action blocks including gates and FFNs (64,306,784). The complete Mamba
+replacement, including context processing, input/output projections, and final
+normalization, contains 70,876,208 parameters. Shared policy wrappers are excluded.
+
+Latency uses the same H100 setup and the two-camera profiler, with 3 warmups and
+10 measured synthetic-batch queries. Prefix/context includes image/language
+embedding, the VLM, and context or KV-cache setup. Denoising includes all ten
+action-expert updates. The complete model-core timer excludes image resizing,
+tokenization, input transfer, noise sampling, networking, simulator rendering,
+and environment stepping. Component medians need not sum to the total median.
+
+This is a released-checkpoint comparison, not two models retrained in the same
+codebase: the release does not pin its dataset or implementation revision.
+It is also not a reproduction of the separate published 87.3% reference.
+See [the exact protocol](../integrations/smolvla/README.md) and
+[machine-readable task outcomes and timing samples](../results/smolvla_25k.json).

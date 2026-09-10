@@ -171,5 +171,10 @@ remain deployment-specific and must be validated before execution.
 The transfer experiment is isolated from the PI0.5 environment and is pinned
 to the evaluated LeRobot revision. Follow
 [`integrations/smolvla/README.md`](../integrations/smolvla/README.md). Its
-training recipe uses 30,000 steps, batch size 16, seed 42, 1,000 warmup steps,
-a cosine schedule from `1e-4` to `2.5e-6`, and final-only checkpointing.
+baseline is the released `lerobot/smolvla_libero` checkpoint, with no additional
+baseline training. SmolVLA-MambaAct uses 25,000 steps, batch size 32, training
+seed 1000, 1,000 warmup steps, a cosine schedule from `1e-4` to `2.5e-6`, and
+final-only checkpointing. Both models are evaluated with 50 trials/task,
+evaluation seed 7, horizon 50, execute 10, ten denoising steps, and two cameras.
+The linked protocol pins the baseline, initialization, dataset, and evaluation
+implementation and explains the limits of matching a released checkpoint.

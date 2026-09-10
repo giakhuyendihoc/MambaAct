@@ -123,7 +123,9 @@ every five environment steps.
 ## Other Experiments
 
 - [Real-world tube and pouring tasks](docs/REPRODUCIBILITY.md#real-world-training)
-- [SmolVLA transfer experiment](integrations/smolvla/README.md)
+- [SmolVLA released-checkpoint 25k comparison](integrations/smolvla/README.md):
+  released SmolVLA **81.30%** versus SmolVLA-MambaAct **84.95%**, with
+  model-core query latency **188.69 ms** versus **90.61 ms** on H100.
 - [Component latency profiling](docs/REPRODUCIBILITY.md#latency-profiling)
 - [LIBERO-Plus evaluation](docs/REPRODUCIBILITY.md#libero-plus)
 
