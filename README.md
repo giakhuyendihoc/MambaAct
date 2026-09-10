@@ -10,9 +10,10 @@ FiLM gates condition four Mamba action blocks without repeating token-level
 cross-attention at every denoising step.
 
 The action-expert core has **29.7M parameters**, compared with **311.5M** in
-the original PI0.5 expert. Under the matched LIBERO protocol, MambaAct improves
-average success from 96.5% to 98.4% while reducing ten-step denoising latency
-by 64.8%.
+the original PI0.5 expert. Across three matched LIBERO training seeds, MambaAct
+achieves **97.80 +/- 0.43%** average success versus **96.72 +/- 0.14%** for
+PI0.5 (mean +/- population standard deviation). The seed-42 reference
+measurements show a 64.8% reduction in ten-step denoising latency.
 
 ## Architecture
 
@@ -50,13 +51,20 @@ applied in its SISO form along the action-token sequence.
 
 ## Main Results
 
-LIBERO results use 50 trials per task and evaluation seed 7. Latency was
-measured on one NVIDIA H100 with action horizon 10 and ten denoising steps.
+LIBERO success rates are mean +/- population standard deviation (`ddof=0`)
+across training seeds **42, 17, and 27**, each evaluated with **50 trials/task
+and fixed evaluation seed 7**. Each checkpoint completes 2,000 trials. These
+measure training-seed variation, not confidence intervals or evaluation-seed
+variation for a single checkpoint.
 
-| Model | Spatial | Object | Goal | L-10 | Avg. | Model size (B) | Prefix (ms) | Denoise (ms) | E2E (ms) |
-| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| PI0.5 | 97.6 | 98.8 | 96.6 | 93.2 | 96.5 | 3.62 | 40.76 | 160.26 | 228.6 |
-| **MambaAct** | **99.2** | **99.8** | **98.8** | **95.8** | **98.4** | **2.96** | 46.61 | **56.40** | **107.6** |
+| Model | Spatial | Object | Goal | L-10 | Avg. | Model size (B) |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| PI0.5 | 98.00 +/- 0.43 | 98.33 +/- 0.66 | 97.73 +/- 0.84 | 92.80 +/- 0.43 | 96.72 +/- 0.14 | 3.62 |
+| **MambaAct** | **98.73 +/- 0.34** | **99.60 +/- 0.43** | **98.60 +/- 0.28** | **94.27 +/- 1.52** | **97.80 +/- 0.43** | **2.96** |
+
+Per-seed scores and the separately labeled seed-42 latency reference are in
+[the main LIBERO results](docs/RESULTS.md#libero). Task-level counts and
+recomputable statistics are in [the multi-seed result file](results/libero_training_seeds.json).
 
 MambaAct also reaches 79.7% on LIBERO-Plus versus 78.7% for the matched PI0.5
 baseline. Complete paper tables, including real-world results and ablations,
@@ -88,7 +96,7 @@ Initializer conversion and benchmark setup are described in
 
 The paper recipe uses full-model fine-tuning without LoRA or EMA: 30,000
 optimizer steps, batch size 16, gradient accumulation 1, eight data workers,
-training seed 42, AdamW with gradient clipping at 1.0, and a cosine learning
+training seed 42 by default, AdamW with gradient clipping at 1.0, and a cosine learning
 rate from `5e-5` to `5e-6` without warmup. Only the final checkpoint is saved.
 
 ```bash
@@ -98,6 +106,11 @@ bash scripts/train_libero.sh mambaact
 # Matched PI0.5 baseline
 bash scripts/train_libero.sh pi05
 ```
+
+For the main multi-seed comparison, repeat each model with training seeds
+42, 17, and 27 while keeping evaluation seed 7. The
+[multi-seed reproduction commands](docs/REPRODUCIBILITY.md#training-seed-robustness)
+use distinct checkpoint and report names for every run.
 
 The same launcher covers the paper ablations:
 

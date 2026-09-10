@@ -57,7 +57,7 @@ critical overrides explicitly:
 | Warmup | 0 |
 | Precision | bfloat16 |
 | Gradient checkpointing | enabled |
-| Training seed | 42 |
+| Training seed | 42 by default; main LIBERO repeats also use 17 and 27 |
 | LoRA / EMA | disabled / disabled |
 | Trainable modules | vision encoder, executed VLM layers, compressor, gates, and action expert |
 | Checkpoint policy | final step only; model weights only |
@@ -101,6 +101,53 @@ The evaluator runs Spatial, Object, Goal, and LIBERO-10 with 50 trials per
 task, seed 7, 224x224 images, horizon 10, ten Euler denoising steps, and five
 executed environment actions per policy query. It writes one metrics JSON per
 suite and a Markdown summary.
+
+## Training-Seed Robustness
+
+The main PI0.5/MambaAct comparison varies only the training seed across
+42, 17, and 27. All six evaluations use seed 7 and 50 trials/task, with the
+standard LIBERO settings above. This is not the separate experiment that
+changes evaluation seeds for one trained checkpoint.
+
+Use unique names to keep the checkpoints and reports separate:
+
+```bash
+for MODEL in pi05 mambaact; do
+  case "$MODEL" in
+    pi05) CONFIG=pi05_libero_baseline ;;
+    mambaact) CONFIG=mambaact_libero ;;
+  esac
+  for SEED in 42 17 27; do
+    RUN="${MODEL}_trainseed${SEED}"
+    TRAIN_SEED="$SEED" RUN_NAME="$RUN" STEPS=30000 BATCH_SIZE=16 GRAD_ACCUM=1 \
+      bash scripts/train_libero.sh "$MODEL"
+    RUN_ID="${RUN}_eval50_seed7" EVAL_SEED=7 TRIALS=50 \
+      bash scripts/eval_libero.sh "$MODEL" \
+      "$MAMBAACT_OUTPUT_ROOT/checkpoints/$CONFIG/$RUN/30000"
+  done
+done
+```
+
+Aggregate the completed evaluations without including local paths in the output:
+
+```bash
+REPORTS="$MAMBAACT_OUTPUT_ROOT/reports/libero"
+python scripts/summarize_libero_training_seeds.py \
+  --run pi05 42 "$REPORTS/pi05_trainseed42_eval50_seed7" \
+  --run pi05 17 "$REPORTS/pi05_trainseed17_eval50_seed7" \
+  --run pi05 27 "$REPORTS/pi05_trainseed27_eval50_seed7" \
+  --run mambaact 42 "$REPORTS/mambaact_trainseed42_eval50_seed7" \
+  --run mambaact 17 "$REPORTS/mambaact_trainseed17_eval50_seed7" \
+  --run mambaact 27 "$REPORTS/mambaact_trainseed27_eval50_seed7" \
+  --output "$MAMBAACT_OUTPUT_ROOT/reports/libero_training_seeds.json"
+```
+
+The exporter validates all 40 tasks and 2,000 trials per checkpoint, the fixed
+evaluation seed, and the five-action replanning interval. It reports the mean
+and population standard deviation (`ddof=0`) across training seeds, including
+the standard deviation of per-run suite averages. The recorded scores are
+available in [the public result bundle](../results/libero_training_seeds.json).
+Latency remains a separately labeled seed-42 reference, not a multi-seed mean.
 
 ## LIBERO-Plus
 

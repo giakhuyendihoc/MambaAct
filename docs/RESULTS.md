@@ -6,12 +6,54 @@ policy-query latency under the definition given for each table.
 
 ## LIBERO
 
-Fifty trials per task, evaluation seed 7, one NVIDIA H100, action horizon 10,
-and ten flow-matching denoising steps.
+The main comparison uses three independent training seeds (42, 17, 27), with
+the same 30,000-step, batch16, full-VLM/full-vision recipe and no LoRA or EMA.
+Every checkpoint is evaluated with 50 trials/task and fixed evaluation seed 7
+on all four suites (2,000 trials/checkpoint, 12,000 trials total). Evaluation
+uses action horizon 10, execute 5, ten denoising steps, and 224x224 images.
+
+### Training-Seed Mean and Standard Deviation
+
+Success rates are percentages. Standard deviations are population standard
+deviations across the three training seeds (`ddof=0`), not confidence intervals
+or standard errors. Compute each run's average across suites first, then compute
+the mean and standard deviation of those three averages; do not average the
+suite standard deviations.
+
+| Model | Spatial | Object | Goal | L-10 | Avg. |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| PI0.5 | 98.00 +/- 0.43 | 98.33 +/- 0.66 | 97.73 +/- 0.84 | 92.80 +/- 0.43 | 96.72 +/- 0.14 |
+| MambaAct | 98.73 +/- 0.34 | 99.60 +/- 0.43 | 98.60 +/- 0.28 | 94.27 +/- 1.52 | 97.80 +/- 0.43 |
+
+### Per-Seed Results
+
+| Model | Training seed | Spatial | Object | Goal | L-10 | Avg. | Successes / trials |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| PI0.5 | 42 | 97.6 | 98.8 | 96.6 | 93.2 | 96.55 | 1931 / 2000 |
+| PI0.5 | 17 | 97.8 | 98.8 | 98.0 | 93.0 | 96.90 | 1938 / 2000 |
+| PI0.5 | 27 | 98.6 | 97.4 | 98.6 | 92.2 | 96.70 | 1934 / 2000 |
+| MambaAct | 42 | 99.2 | 99.8 | 98.8 | 95.8 | 98.40 | 1968 / 2000 |
+| MambaAct | 17 | 98.6 | 100.0 | 98.8 | 92.2 | 97.40 | 1948 / 2000 |
+| MambaAct | 27 | 98.4 | 99.0 | 98.2 | 94.8 | 97.60 | 1952 / 2000 |
+
+The paired MambaAct-minus-PI0.5 gains are +1.85, +0.50, and +0.90 percentage
+points, respectively, averaging +1.08 points. MambaAct scores higher at all
+three paired training seeds. This is descriptive evidence from three seeds,
+not a claim of statistical significance.
+
+The [machine-readable result bundle](../results/libero_training_seeds.json)
+contains every task's success count, source-report checksums, per-seed scores,
+and unrounded aggregate statistics. It is generated with
+[`scripts/summarize_libero_training_seeds.py`](../scripts/summarize_libero_training_seeds.py).
+
+### Seed-42 Reference
+
+The original seed-42 scores and H100 timing measurements below remain separate
+from the training-seed aggregates. Latencies are not three-seed averages.
 
 | Model | Spatial | Object | Goal | L-10 | Avg. | Model size (B) | Prefix (ms) | Denoise (ms) | E2E (ms) |
 | --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
-| PI0.5 | 97.6 | 98.8 | 96.6 | 93.2 | 96.5 | 3.62 | 40.76 | 160.26 | 228.6 |
+| PI0.5 | 97.6 | 98.8 | 96.6 | 93.2 | 96.55 | 3.62 | 40.76 | 160.26 | 228.6 |
 | MambaAct | 99.2 | 99.8 | 98.8 | 95.8 | 98.4 | 2.96 | 46.61 | 56.40 | 107.6 |
 
 The action-expert core decreases from 311.5M to 29.7M parameters. Denoising

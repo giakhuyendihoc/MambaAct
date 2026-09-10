@@ -1,0 +1,1555 @@
+{
+  "schema_version": 1,
+  "training_seeds": [
+    42,
+    17,
+    27
+  ],
+  "evaluation": {
+    "seed": 7,
+    "trials_per_task": 50,
+    "suites": [
+      "libero_spatial",
+      "libero_object",
+      "libero_goal",
+      "libero_10"
+    ],
+    "trials_per_model_per_seed": 2000,
+    "replan_steps": 5
+  },
+  "statistic": {
+    "name": "mean and population standard deviation across training seeds",
+    "ddof": 0,
+    "unit": "percentage points",
+    "not_ci_or_sem": true
+  },
+  "models": {
+    "pi05": {
+      "runs": [
+        {
+          "training_seed": 42,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1931,
+          "average_success_percent": 96.55,
+          "suites": {
+            "libero_spatial": {
+              "successes": 488,
+              "trials": 500,
+              "success_percent": 97.6,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "e4f30e5db41608ed7e2691a342206db50e5e870d634a39033531f575661accd2"
+            },
+            "libero_object": {
+              "successes": 494,
+              "trials": 500,
+              "success_percent": 98.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "860a8751e51e335de46c9925f1d0c00d2c09b3ab0fc70152801eb0fc80d70fe3"
+            },
+            "libero_goal": {
+              "successes": 483,
+              "trials": 500,
+              "success_percent": 96.6,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 43,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 44,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "9b2d6b31efb81e103ed097c7a0575c95b97545abce9fa8c2434ad21b5be4c65f"
+            },
+            "libero_10": {
+              "successes": 466,
+              "trials": 500,
+              "success_percent": 93.2,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 46,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 45,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 41,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 39,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "eb14fe0a4ab89fb3ae1570b9ad4d7c8e3d8b88d91015dd8a7a7b8afb48d4b670"
+            }
+          }
+        },
+        {
+          "training_seed": 17,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1938,
+          "average_success_percent": 96.9,
+          "suites": {
+            "libero_spatial": {
+              "successes": 489,
+              "trials": 500,
+              "success_percent": 97.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 44,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 49,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "f909af6aeb50119edf0982fd5714e9e8a0f9e5ce34f937fb366f0fba5196ff7b"
+            },
+            "libero_object": {
+              "successes": 494,
+              "trials": 500,
+              "success_percent": 98.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "f1648bc8c3e7c02847f723c1819e1736b139d8b3ff621928d3cae30f8e305bb8"
+            },
+            "libero_goal": {
+              "successes": 490,
+              "trials": 500,
+              "success_percent": 98.0,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 49,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "03d8ee12d3c996fee55a954119bc0ad897b526648e11af744bec20071d7ee24c"
+            },
+            "libero_10": {
+              "successes": 465,
+              "trials": 500,
+              "success_percent": 93.0,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 44,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 32,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 45,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "2b3a3087f0c4263a197ac13c2aec329b0bcf28b32009b78d6435a7b5e766c3b0"
+            }
+          }
+        },
+        {
+          "training_seed": 27,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1934,
+          "average_success_percent": 96.7,
+          "suites": {
+            "libero_spatial": {
+              "successes": 493,
+              "trials": 500,
+              "success_percent": 98.6,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "97bbc9dbbf7416b0a525d0225eabb56d239123c566c649907c1ababf62ab30bf"
+            },
+            "libero_object": {
+              "successes": 487,
+              "trials": 500,
+              "success_percent": 97.4,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 42,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "7bb3c031e4b89d5f3820901364d3469570a7629b6e7ecd592b299f6cacb66767"
+            },
+            "libero_goal": {
+              "successes": 493,
+              "trials": 500,
+              "success_percent": 98.6,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 48,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "f3f6c3778f40204a23a5d98955271aa4453ce4ab7093a86213632642149a431b"
+            },
+            "libero_10": {
+              "successes": 461,
+              "trials": 500,
+              "success_percent": 92.2,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 46,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 44,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 44,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 38,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 41,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "88331d9b3be98f657cc7beac5b21d77cc23d3647462a833b46cba648e397d026"
+            }
+          }
+        }
+      ],
+      "aggregate": {
+        "suites": {
+          "libero_spatial": {
+            "mean": 98.0,
+            "std": 0.4320493798938569,
+            "n": 3
+          },
+          "libero_object": {
+            "mean": 98.33333333333333,
+            "std": 0.6599663291074404,
+            "n": 3
+          },
+          "libero_goal": {
+            "mean": 97.73333333333333,
+            "std": 0.8379870059984362,
+            "n": 3
+          },
+          "libero_10": {
+            "mean": 92.8,
+            "std": 0.4320493798938569,
+            "n": 3
+          }
+        },
+        "average_success_percent": {
+          "mean": 96.71666666666667,
+          "std": 0.1433720877840472,
+          "n": 3
+        }
+      }
+    },
+    "mambaact": {
+      "runs": [
+        {
+          "training_seed": 42,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1968,
+          "average_success_percent": 98.4,
+          "suites": {
+            "libero_spatial": {
+              "successes": 496,
+              "trials": 500,
+              "success_percent": 99.2,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "b0581ac3112715bd27d251268ed14e2d45d8d9a5af7bf2098ff294aae927a4ec"
+            },
+            "libero_object": {
+              "successes": 499,
+              "trials": 500,
+              "success_percent": 99.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "5106398fd9db50f1e98a1e71f9ebbc27232a3e96bb8bdc274f247297e48121d0"
+            },
+            "libero_goal": {
+              "successes": 494,
+              "trials": 500,
+              "success_percent": 98.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 46,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "928828655745fbf42503f70f56e329a00ba8821459f96b0f8da54398ab305d7a"
+            },
+            "libero_10": {
+              "successes": 479,
+              "trials": 500,
+              "success_percent": 95.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 41,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 48,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "bf306ea73998031cd568bd867f4efb504ecf5efdb337d96ad5b29d78835830c2"
+            }
+          }
+        },
+        {
+          "training_seed": 17,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1948,
+          "average_success_percent": 97.4,
+          "suites": {
+            "libero_spatial": {
+              "successes": 493,
+              "trials": 500,
+              "success_percent": 98.6,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 46,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 49,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "16d1234d953580b56d69ac8d83fc29e5e128eaad4f1868d222d060781d7c35f5"
+            },
+            "libero_object": {
+              "successes": 500,
+              "trials": 500,
+              "success_percent": 100.0,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "4e1e3abdd796e7dba6424bb242575a5f161db3e06a1bc60b4babff5d872312f5"
+            },
+            "libero_goal": {
+              "successes": 494,
+              "trials": 500,
+              "success_percent": 98.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 46,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "837ec62fe39f5ee8765679355bfd6161d6acbf0330bc055dff89ca7e5dc59ded"
+            },
+            "libero_10": {
+              "successes": 461,
+              "trials": 500,
+              "success_percent": 92.2,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 45,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 38,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 35,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "f68260b3ca3d72907d666647298074962142cecaee1e8eb3cc37a8a62fece47d"
+            }
+          }
+        },
+        {
+          "training_seed": 27,
+          "evaluation_seed": 7,
+          "trials": 2000,
+          "successes": 1952,
+          "average_success_percent": 97.6,
+          "suites": {
+            "libero_spatial": {
+              "successes": 492,
+              "trials": 500,
+              "success_percent": 98.4,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "5f5845464f4f1a5f697a0af5694b64d535814e62233822c9ebcd02136cc4380f"
+            },
+            "libero_object": {
+              "successes": 495,
+              "trials": 500,
+              "success_percent": 99.0,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 47,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 50,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "ea4c4e7ac9073cd5c148a4a7ba8cc9f35d2edf4a32e697337c284890749a9d10"
+            },
+            "libero_goal": {
+              "successes": 491,
+              "trials": 500,
+              "success_percent": 98.2,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 44,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 48,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "d17814ab475cd5a6a407f16e1b9a31bebee045789882785ab4e2427e8d72433b"
+            },
+            "libero_10": {
+              "successes": 474,
+              "trials": 500,
+              "success_percent": 94.8,
+              "per_task": [
+                {
+                  "task_id": 0,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 1,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 2,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 3,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 4,
+                  "successes": 48,
+                  "trials": 50
+                },
+                {
+                  "task_id": 5,
+                  "successes": 49,
+                  "trials": 50
+                },
+                {
+                  "task_id": 6,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 7,
+                  "successes": 50,
+                  "trials": 50
+                },
+                {
+                  "task_id": 8,
+                  "successes": 43,
+                  "trials": 50
+                },
+                {
+                  "task_id": 9,
+                  "successes": 38,
+                  "trials": 50
+                }
+              ],
+              "source_sha256": "93a73123f184ba3e52dcebeed1190f1c3c52c291d76ed3ebe572697ce1a5f754"
+            }
+          }
+        }
+      ],
+      "aggregate": {
+        "suites": {
+          "libero_spatial": {
+            "mean": 98.73333333333333,
+            "std": 0.33993463423951914,
+            "n": 3
+          },
+          "libero_object": {
+            "mean": 99.6,
+            "std": 0.4320493798938569,
+            "n": 3
+          },
+          "libero_goal": {
+            "mean": 98.6,
+            "std": 0.28284271247461634,
+            "n": 3
+          },
+          "libero_10": {
+            "mean": 94.26666666666667,
+            "std": 1.517307556898803,
+            "n": 3
+          }
+        },
+        "average_success_percent": {
+          "mean": 97.8,
+          "std": 0.4320493798938591,
+          "n": 3
+        }
+      }
+    }
+  },
+  "paired_average_gain": {
+    "training_seeds": [
+      42,
+      17,
+      27
+    ],
+    "values": [
+      1.8500000000000085,
+      0.5,
+      0.8999999999999915
+    ],
+    "mean": 1.0833333333333333,
+    "std": 0.5661762583821057,
+    "n": 3
+  }
+}
