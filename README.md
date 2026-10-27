@@ -3,6 +3,9 @@
 Official implementation and reproducibility release for **MambaAct: Efficient
 Mamba Action Experts for Flow-Matching Vision-Language-Action Models**.
 
+[Paper (Hugging Face)](https://huggingface.co/papers/2610.22951) |
+[Project page](https://giakhuyendihoc.github.io/mambaact-page/)
+
 MambaAct retains the pretrained PI0.5 visual-language backbone and replaces
 its repeatedly evaluated Transformer action expert with a compact Mamba3
 expert. A Context Compressor maps the VLM prefix to 64 tokens, and blockwise
